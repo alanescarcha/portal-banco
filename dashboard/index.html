@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <title>Dashboard - Banco Fe Santa</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="../assets/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="../assets/img/logo-white.svg" width="200" class="d-inline-block align-text-top">
+      </a>
+    </div>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-nav">
+      <div class="nav-item text-nowrap">
+        <a class="nav-link px-3" href="../">Cerrar sesión</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link">
+                <span id="userData"></span>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">
+                <span data-feather="home"></span>
+                Resumen
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file"></span>
+                Pagos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="shopping-cart"></span>
+                Tarjetas
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="users"></span>
+                Inversiones
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="bar-chart-2"></span>
+                Préstamos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                Transferencias
+              </a>
+            </li>
+          </ul>
+
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Datalles</span>
+          </h6>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link">
+                <span data-feather="file-text"></span>
+                Caja ahorros: $45,991.00 ARS
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">
+                <span data-feather="file-text"></span>
+                Caja ahorros: $300.00 USD
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">
+                <span data-feather="file-text"></span>
+                Invertido: $0.00 ARS
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">
+                <span data-feather="file-text"></span>
+                Plazo Fijo: $4,300.00 ARS
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Resumen</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <button type="button" class="btn btn-sm btn-outline-success dropdown-toggle">
+              <span data-feather="calendar"></span>
+              Esta semana
+            </button>
+          </div>
+        </div>
+
+        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+
+        <h2>Movimientos</h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col">Concepto</th>
+                <th scope="col">Operación</th>
+                <th scope="col">Referencia</th>
+                <th scope="col">Cargo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>07-10-2021</td>
+                <td>SWIFT ES 12 34B2 5424 12 1PC238AO3</td>
+                <td>Transferencia</td>
+                <td>Caja de ahorros (Dolares)</td>
+                <td>+$290.00 USD</td>
+              </tr>
+              <tr>
+                <td>07-10-2021</td>
+                <td>CBU 000045123784174</td>
+                <td>Transferencia</td>
+                <td>Caja de ahorro (Pesos)</td>
+                <td>+$23,000.00 ARS</td>
+              </tr>
+              <tr>
+                <td>06-10-2021</td>
+                <td>Mercadopago</td>
+                <td>Consumo</td>
+                <td>Debito 0738</td>
+                <td>-$1,570.00 ARS</td>
+              </tr>
+              <tr>
+                <td>05-10-2021</td>
+                <td>Amazon Prime Video Suscripción</td>
+                <td>Consumo</td>
+                <td>Debito 0738</td>
+                <td>-$319.00 ARS</td>
+              </tr>
+              <tr>
+                <td>04-10-2021</td>
+                <td>CBU 000045123784174</td>
+                <td>Transferencia</td>
+                <td>Caja de ahorro (Pesos)</td>
+                <td>+$15,000.00 ARS</td>
+              </tr>
+              <tr>
+                <td>04-10-2021</td>
+                <td>Combo Disney+ y Star+ Suscripción</td>
+                <td>Consumo</td>
+                <td>Debito 0738</td>
+                <td>-$995.00 ARS</td>
+              </tr>
+              <tr>
+                <td>03-10-2021</td>
+                <td>Netflix Suscripción Premium</td>
+                <td>Consumo</td>
+                <td>Debito 0738</td>
+                <td>-$939.00 ARS</td>
+              </tr>
+              <tr>
+                <td>02-10-2021</td>
+                <td>YouTube Premium Suscripción</td>
+                <td>Consumo</td>
+                <td>Debito 0738</td>
+                <td>-$119,00 ARS</td>
+              </tr>
+              <tr>
+                <td>01-10-2021</td>
+                <td>Spotify Suscripción</td>
+                <td>Consumo</td>
+                <td>Debito 0738</td>
+                <td>-$199,00 ARS</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+    integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+    crossorigin="anonymous"></script>
+  <script src="../assets/dashboard.js"></script>
+</body>
+
+</html>
